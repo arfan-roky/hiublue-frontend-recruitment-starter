@@ -245,6 +245,7 @@ export function CreateOfferForm() {
                         helperText: fieldState.error?.message ?? "",
                       },
                     }}
+                    disablePast
                   />
                 )}
               />
