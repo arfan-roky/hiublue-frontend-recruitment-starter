@@ -1,5 +1,5 @@
-'use client';
+import { CreateOfferForm } from "./create-offer-form-view";
 
-export default function OnboardingView(){
-  return <>Onboarding View</>;
+export default function OnboardingView() {
+  return <CreateOfferForm />;
 }
