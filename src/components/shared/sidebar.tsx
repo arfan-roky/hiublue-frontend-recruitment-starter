@@ -26,9 +26,11 @@ export function Sidebar() {
     [pathname]
   );
 
+  const onClose = useCallback(() => setIsSidebarOpen(false), []);
+
   return (
     <Drawer
-      onClose={() => setIsSidebarOpen(false)}
+      onClose={onClose}
       variant={isMobileQuery ? "temporary" : "permanent"}
       // open={isSidebarOpen}
       {...(isMobileQuery && { open: isSidebarOpen })}
@@ -50,6 +52,7 @@ export function Sidebar() {
             selected={isSelected("/")}
             LinkComponent={Link}
             href="/"
+            onClick={onClose}
           >
             <ListItemIcon>
               <Image
@@ -67,6 +70,7 @@ export function Sidebar() {
             selected={isSelected("/onboarding")}
             LinkComponent={Link}
             href="/onboarding"
+            onClick={onClose}
           >
             <ListItemIcon>
               <Image
