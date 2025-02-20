@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const { auth, onLogout } = useAuth();
   const { toggleSidebar } = useLayout();
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const open = Boolean(anchorEl);
   const id = open ? "user-menu" : undefined;
@@ -83,8 +84,21 @@ const Navbar = () => {
             vertical: "bottom",
             horizontal: "left",
           }}
+          sx={{
+            "& .MuiPaper-root": {
+              minWidth: "180px",
+              padding: 1,
+            },
+          }}
         >
-          <MenuItem onClick={() => setAnchorEl(null)}>On boarding</MenuItem>
+          <MenuItem
+            onClick={() => {
+              setAnchorEl(null);
+              router.push("/onboarding");
+            }}
+          >
+            On boarding
+          </MenuItem>
           <MenuItem onClick={onLogout}>Log out</MenuItem>
         </Popover>
       </Box>
