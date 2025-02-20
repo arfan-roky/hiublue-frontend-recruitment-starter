@@ -5,6 +5,7 @@ import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import ThemeProvider from "@/theme/index";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "@/context/authStore";
+import { LayoutProvider } from "@/context/layoutStore";
 
 const Providers = (props: { children: React.ReactNode }) => {
   return (
@@ -13,9 +14,11 @@ const Providers = (props: { children: React.ReactNode }) => {
       <AppRouterCacheProvider options={{ enableCssLayer: true }}>
         <ThemeProvider>
           <AuthProvider>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <CssBaseline />
-            {props.children}
+            <LayoutProvider>
+              {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+              <CssBaseline />
+              {props.children}
+            </LayoutProvider>
           </AuthProvider>
           <ToastContainer />
         </ThemeProvider>
