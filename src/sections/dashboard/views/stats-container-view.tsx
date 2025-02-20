@@ -8,7 +8,7 @@ import { StatData } from "@/types/dashboard";
 
 const StatsContainerView = () => {
   const searchParams = useSearchParams();
-  const filter = searchParams.get("filter") || "this-month";
+  const filter = searchParams.get("filter") || "this-week";
   const { loading, data } = useFetch<StatData>(
     `/dashboard/stat?filter=${filter}`
   );
