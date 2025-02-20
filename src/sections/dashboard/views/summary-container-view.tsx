@@ -7,7 +7,7 @@ import { SummaryDataResponse } from "@/types/dashboard";
 
 const SummaryContainerView = () => {
   const searchParams = useSearchParams();
-  const filter = searchParams.get("filter") || "this-month";
+  const filter = searchParams.get("filter") || "this-week";
   const { loading, data, error } = useFetch<SummaryDataResponse>(
     `/dashboard/summary?filter=${filter}`
   );

@@ -1,15 +1,25 @@
 import DashboardHeaderView from "./dashboard-header-view";
 import SummaryContainerView from "./summary-container-view";
 import StatsContainerView from "./stats-container-view";
-import { Stack } from "@mui/material";
+import OfferListView from "./offer-list-view";
+import { Box } from "@mui/material";
 
-export default function DashboardPage() {
+export default function DashboardView() {
   return (
-    <Stack direction={"column"} gap={"24px"}>
+    <Box
+      sx={{
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        // overflow: "auto",
+        gap: "24px",
+      }}
+    >
       <DashboardHeaderView />
 
       <SummaryContainerView />
       <StatsContainerView />
-    </Stack>
+      <OfferListView />
+    </Box>
   );
 }

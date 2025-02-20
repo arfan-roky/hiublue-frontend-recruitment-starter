@@ -59,12 +59,10 @@ export function WebsiteVisitsChart({ data }: Props) {
     {
       name: "Desktop",
       data: data ? Object.values(data).map((item) => item.desktop) : [],
-      borderRadius: 4,
     },
     {
       name: "Mobile",
       data: data ? Object.values(data).map((item) => item.mobile) : [],
-      borderRadius: 4,
     },
   ];
 

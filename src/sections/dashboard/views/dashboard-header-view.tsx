@@ -12,7 +12,7 @@ const DashboardHeaderView = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const value = searchParams.get("filter") || "this-month";
+  const value = searchParams.get("filter") || "this-week";
 
   const onFilterChange = (event: SelectChangeEvent<string>) => {
     const filter = event.target.value as string;
@@ -34,12 +34,11 @@ const DashboardHeaderView = () => {
         value={value}
         onChange={(e) => onFilterChange(e)}
         size="small"
-        defaultValue="this-month"
+        defaultValue="this-week"
         sx={{ minWidth: 120 }}
       >
-        <MenuItem value="this-month">This Month</MenuItem>
-        <MenuItem value="last-month">Last Month</MenuItem>
-        <MenuItem value="this-year">This Year</MenuItem>
+        <MenuItem value="this-week">This Week</MenuItem>
+        <MenuItem value="prev-week">Previous Week</MenuItem>
       </Select>
     </Box>
   );
