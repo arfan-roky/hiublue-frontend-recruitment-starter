@@ -1,6 +1,17 @@
 # Setup Guide for Hiublue Frontend Recruitment Starter
 
-## **Prerequisites**
+## Deployment URL
+
+You can visit the website and log in using the following details:
+
+**URL:** [https://hiublue-frontend-recruitment-starter-omega.vercel.app/](https://hiublue-frontend-recruitment-starter-omega.vercel.app/)
+
+**Credentials:**
+
+- **Email:** test@example.com
+- **Password:** password123
+
+## Prerequisites
 
 Before running this project, ensure you have the following installed:
 
@@ -13,7 +24,7 @@ If you don’t have `pnpm`, install it using:
 npm install -g pnpm
 ```
 
-## **Clone the Repository**
+## Clone the Repository
 
 To get started, clone the repository using SSH:
 
@@ -27,7 +38,7 @@ Navigate into the project directory:
 cd hiublue-frontend-recruitment-starter
 ```
 
-## **Environment Variables**
+## Environment Variables
 
 Create a `.env.local` file in the root directory and add the required environment variables:
 
@@ -35,7 +46,7 @@ Create a `.env.local` file in the root directory and add the required environmen
 NEXT_PUBLIC_API_URL=https://example.com/api
 ```
 
-## **Install Dependencies**
+## Install Dependencies
 
 Run the following command to install the required dependencies:
 
@@ -43,7 +54,7 @@ Run the following command to install the required dependencies:
 pnpm install
 ```
 
-## **Start the Development Server**
+## Start the Development Server
 
 Once dependencies are installed, start the Next.js development server with:
 
