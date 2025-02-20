@@ -27,6 +27,7 @@ interface Auth {
 interface AuthContextType {
   isAuthenticated: boolean;
   auth: Auth;
+  onLogout: () => void;
 }
 
 // Define initial state
@@ -40,6 +41,7 @@ const initialState: AuthContextType = {
       email: "",
     },
   },
+  onLogout: () => {},
 };
 
 // Create the context
@@ -56,8 +58,25 @@ interface AuthProviderProps {
  */
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [authState, setAuthState] = useState<AuthContextType>(initialState);
+  const [authState, setAuthState] =
+    useState<Omit<AuthContextType, "onLogout">>(initialState);
   const router = useRouter();
+
+  const onLogout = () => {
+    setAuthState({
+      isAuthenticated: false,
+      auth: {
+        token: "",
+        user: {
+          id: "",
+          name: "",
+          email: "",
+        },
+      },
+    });
+    localStorage.removeItem("auth");
+    router.push("/login");
+  };
 
   useEffect(() => {
     const initializeAuth = () => {
@@ -103,7 +122,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={authState}>{children}</AuthContext.Provider>
+    <AuthContext.Provider
+      value={{
+        ...authState,
+        onLogout,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
   );
 };
 
